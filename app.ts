@@ -85,10 +85,10 @@ async function main(tag: string): Promise<void> {
     const { title, content, url, author, published } = entry;
 
     const entryData: Entry = {
-      title: (title && title.value) ? title.value : "no title",
-      content: (content && content.value) ? content.value : "",
-      link: (url && url.value) ? url.value : "",
-      author: (author && author.name) ? author.name : "",
+      title: title?.value || "no title",
+      content: content?.value || "",
+      link: url?.value || "",
+      author: author?.name || "",
       publishedAt: published
         ? format(new Date(published), "yyyy/MM/dd HH:mm")
         : "",
