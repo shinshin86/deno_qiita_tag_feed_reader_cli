@@ -54,8 +54,8 @@ function trimText(text: string): string {
 function contentDisplay(data: DisplayData): void {
   // Display from the most recent date
   data.entries.sort(function (a: Entry, b: Entry) {
-    // @ts-ignore
-    return new Date(a.publishedAt) - new Date(b.publishedAt);
+    return new Date(a.publishedAt).valueOf() -
+      new Date(b.publishedAt).valueOf();
   });
 
   for (const entry of data.entries) {
